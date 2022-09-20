@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="tree-fontello/css/fontello.css">
+    <style>
+        .tree {
+            color: #393939;
+        }
+        .tree, .tree ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+        .tree *:before {
+            width: 17px;
+            height: 17px;
+            display: inline-block;
+        }
+        .tree label {
+            cursor: pointer;
+        }
+        .tree a {
+            text-decoration: none;
+            color: #393939;
+        }
+        .tree label::before {
+            content: '\f256';
+            font-family: fontello;
+        }
+        .tree a::before {
+            content: '\e800';
+            font-family: fontello;
+        }
+        .tree input[type="checkbox"]{
+            display: none;
+        }
+        /* 체크된 박스 이후에 등장하는 ul태그 (전체) */
+        .tree input[type="checkbox"]:checked~ul{
+            display: none;
+        }
+        /* 체크된 박스 바로 이후에 레이블 태그 */
+        .tree input[type="checkbox"]:checked+label:before {
+            content: '\f255';
+            font-family: fontello;
+        }
+    </style>
+</head>
+<body>
+    <ul class="tree">
+        <li>
+            <input type="checkbox" id="root">
+            <label for="root">ROOT</label>
+            <ul>
+                <li><a href="http://naver.com">node1</a></li>
+                <li><a href="http://naver.com">node2</a></li>
+                <li>
+                    <input type="checkbox" id="node3">
+                    <label for="node3">node3</label>
+                    <ul>
+                        <li><a href="http://naver.com">node3-1</a></li>
+                        <li><a href="http://naver.com">node3-2</a></li>
+                        <li><a href="http://naver.com">node3-3</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>
